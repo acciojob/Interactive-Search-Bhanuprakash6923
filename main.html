@@ -1,16 +1,71 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+  <meta charset="UTF-8">
+  <title>Interactive Search</title>
+  <style>
+    /* Container for the search component */
+    .search {
+      position: relative;
+      width: 50px;
+      height: 40px;
+      transition: width 0.4s ease;
+      display: flex;
+      align-items: center;
+    }
 
+    /* Input element - hidden by default */
+    .input {
+      width: 0;
+      height: 100%;
+      padding: 0;
+      border: none;
+      outline: none;
+      transition: width 0.4s ease;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    /* Button element */
+    .btn {
+      width: 40px;
+      height: 100%;
+      background-color: #3498db;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* When search is active, expand the input */
+    .search.active {
+      width: 200px;
+    }
+
+    .search.active .input {
+      width: 160px;
+      padding: 0 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+  <div class="search">
+    <input type="text" class="input" placeholder="Search...">
+    <button class="btn">🔍</button>
+  </div>
+
+  <script>
+    const search = document.querySelector('.search');
+    const btn = document.querySelector('.btn');
+    const input = document.querySelector('.input');
+
+    btn.addEventListener('click', () => {
+      search.classList.add('active');
+      input.focus();
+    });
+  </script>
 
 </body>
-
 </html>
